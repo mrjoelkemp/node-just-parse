@@ -1,6 +1,6 @@
 {
   "name": "just-parse",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Enough configuration, just parse the goddamn file",
   "main": "index.js",
   "scripts": {
