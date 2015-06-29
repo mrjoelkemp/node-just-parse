@@ -21,7 +21,7 @@
   },
   "homepage": "https://github.com/mrjoelkemp/node-just-parse",
   "dependencies": {
-    "acorn": "~0.11.0"
+    "acorn": "^2.0.4"
   },
   "devDependencies": {
     "jscs": "~1.11.3",
