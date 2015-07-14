@@ -9,9 +9,7 @@ var acornLoose = require('acorn/dist/acorn_loose');
  */
 module.exports = function(content) {
   var ast;
-  var parserOptions = {
-    ecmaVersion: 6
-  };
+  var parserOptions = module.exports._getParserOptions();
 
   // Returns an object if ok, if not, returns an empty array
   try {
@@ -22,4 +20,14 @@ module.exports = function(content) {
   }
 
   return ast;
+};
+
+/**
+ * Exposed for testing
+ * @return {Object}
+ */
+module.exports._getParserOptions = function() {
+  return {
+    ecmaVersion: 6
+  };
 };
