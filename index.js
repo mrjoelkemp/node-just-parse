@@ -1,5 +1,6 @@
 var acorn = require('acorn');
 var acornLoose = require('acorn/dist/acorn_loose');
+var debug = require('debug')('parse');
 
 /**
  * Parse with strict mode then with loose mode as a fallback
@@ -10,15 +11,19 @@ var acornLoose = require('acorn/dist/acorn_loose');
 module.exports = function(content) {
   var ast;
   var parserOptions = module.exports._getParserOptions();
+  debug('parser options: ' + JSON.stringify(parserOptions));
 
   // Returns an object if ok, if not, returns an empty array
   try {
+    debug('trying the regular parser');
     ast = acorn.parse(content, parserOptions);
 
   } catch (err) {
-    ast = acornLoose.parse_dammit(content, parserOptions);
+    debug('using the loose parser');
+    ast = acornLoose.parse_dammit(content);
   }
 
+  debug('parsed ast: ', ast);
   return ast;
 };
 
